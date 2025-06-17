@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { UserProps } from "../types/user";
+import { UserProps } from "../types/user.ts";
 
 const userSchema = new Schema<UserProps>({
   name: { type: String, required: true },
@@ -8,9 +8,9 @@ const userSchema = new Schema<UserProps>({
   role: {
     type: String,
     required: true,
-    enum: ["admin", "customer"],
-    default: "customer",
+    enum: ['technical', 'customer'],
+    default: 'customer',
   },
-});
+})
 
 export const User = mongoose.model<UserProps>("User", userSchema);
