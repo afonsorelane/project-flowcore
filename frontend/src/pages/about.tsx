@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
-import { FooterLogin } from "@/components/footer-login";
+import { FooterLogin } from "@/components/about-footer";
 
-export const LoginPage = () => {
+export const AboutPage = () => {
   return (
     <div className="w-full min-h-screen bg-gray-100 text-gray-800">
       {/* Header com fundo completo */}
