@@ -2,11 +2,15 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from 'cors'
+
+
 import { loginRoute, userroute } from './routes/user.route'
 import { requestRoute } from './routes/request.route'
 import tecRoute from './routes/tecnich.route'
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 dotenv.config()
 
