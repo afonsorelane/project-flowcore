@@ -7,6 +7,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 import { LuSearch } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+import { login } from "@/services/login";
+import toast, { Toaster } from 'react-hot-toast'
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Email inválido" }),
@@ -24,16 +27,33 @@ export const LoginPage = () => {
     resolver: zodResolver(loginSchema),
   });
 
-  function onSubmit(data: LoginFormData) {
-    console.log(data);
+  async function onSubmit(user: z.infer<typeof loginSchema>) {
+    try {
+      const response = await login({
+        data: { email: user.email, password: user.password },
+      })
+      if (response.status === 200) {
+        toast.success('Login feito com sucesso!',{id:"1"})
+        window.location.href = '/'
+      } else {
+       // console.log("não conseguiu fazer login")
+        toast.error("Email ou Password incorrectos",{id:"1"})
+      }
+    } catch (error) {
+      console.error(error)
+      toast.error('Error logging in. Please try again later.', {
+        id: '1',
+      })
+    }
   }
+   const navigate = useNavigate();
 
   return (
     <>
       <div className="bg-opacity-50 flex justify-between items-center p-6">
         <h1 className="text-black text-3xl font-bold">FLOWCORE</h1>
         <div>
-          <Button>Voltar</Button>
+          <Button onClick={() => navigate("/")}>Voltar</Button>
         </div>
       </div>
       <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
@@ -51,11 +71,11 @@ export const LoginPage = () => {
             <Card className="w-full max-w-md shadow-none border-none">
               <CardContent className="p-6">
                 <h1 className="text-2xl font-semibold mb-6 text-center">
-                  Sign In
+                  Entrar
                 </h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div>
-                    <Label htmlFor="email">Email Address</Label>
+                    <Label htmlFor="email">Email</Label>
                     <Input id="email" type="email" {...register("email")} />
                     {errors.email && (
                       <p className="text-sm text-red-500">
@@ -78,28 +98,29 @@ export const LoginPage = () => {
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <a href="#" className="text-blue-600 hover:underline">
-                      Forgot password?
+                      Esqueceu a senha?
                     </a>
                     <a href="#" className="text-blue-600 hover:underline">
-                      Help
+                      Ajuda
                     </a>
                   </div>
-                  <Button className="w-full">Sign In</Button>
+                  <Toaster />
+                  <Button className="w-full">Entrar</Button>
                 </form>
                 <p className="text-xs text-center mt-4">
                   By signing in, I agree to the{" "}
                   <a href="#" className="underline">
-                    Flowcore's Privacy Statement
+                    Política de Privacidade
                   </a>{" "}
                   and{" "}
                   <a href="#" className="underline">
-                    Terms of Service
+                    Termos e Condições de Uso
                   </a>
                   .
                 </p>
                 <div className="flex items-center justify-center gap-4 mt-4 text-sm text-muted-foreground">
                   <div className="h-px bg-gray-300 w-1/3"></div>
-                  <span>Or sign in with</span>
+                  <span>Aceda também com:</span>
                   <div className="h-px bg-gray-300 w-1/3"></div>
                 </div>
                 <div className="flex justify-between mt-4">

@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 import { FooterLogin } from "@/components/about-footer";
+import { useNavigate } from "react-router-dom";
 
 export const AboutPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full min-h-screen bg-gray-100 text-gray-800">
       {/* Header com fundo completo */}
@@ -20,7 +22,7 @@ export const AboutPage = () => {
         <div className="flex justify-between p-4">
           <h1 className="text-gray-800 text-3xl font-bold">FLOWCORE</h1>
           <div className="space-x-4">
-            <Button variant="outline">Iniciar Sessão</Button>
+            <Button variant="outline" onClick={() => navigate("/login")}>Iniciar Sessão</Button>
             <Button>Registar</Button>
           </div>
         </div>
