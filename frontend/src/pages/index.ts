@@ -1,5 +1,8 @@
 import { AboutPage } from "./about";
 import { LoginPage } from "./login";
-import {ErrorPage} from "./errorPage";
+import { ErrorPage } from "./errorPage";
 
-export { AboutPage, LoginPage , ErrorPage };
+import { RequestPage } from "./request";
+import { SubmitForm } from "./request-form";
+
+export { AboutPage, LoginPage, RequestPage, SubmitForm, ErrorPage };
