@@ -5,6 +5,7 @@ import { User } from '../models/user.model.ts'
 import { Document } from '../models/document.model.ts'
 import jwt from 'jsonwebtoken'
 import { gerarSenhaAleatoria } from '../utils/utils.ts'
+import { sendEmail } from './sendEmail.controller.ts'
 
 
 export const register = async (req: Request, res: Response) => {
@@ -36,6 +37,12 @@ console.log('Senha gerada aleatoriamente:', aleatoria);
       password: password,
       role: role || 'customer',
     })
+
+     try {
+      await sendEmail(email, aleatoria);
+    } catch (emailError) {
+      console.error('Erro ao enviar e-mail:', emailError);
+    }
 
     res.status(201).json({ message: 'Usuario criado com sucesso', user })
   } catch (error) {
