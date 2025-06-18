@@ -7,33 +7,33 @@ export const Footer = () => {
           <p className="mt-2">
             FLOWCORE.
             <br />
-            Providing reliable tech since 1992
+            Fornecendo tecnologia confiável desde 1992
           </p>
         </div>
         <div>
-          <h3 className="text-sm font-bold uppercase mb-2">Services</h3>
+          <h3 className="text-sm font-bold uppercase mb-2">Serviços</h3>
           <ul className="space-y-1 text-sm">
-            <li>Branding</li>
-            <li>Design</li>
-            <li>Marketing</li>
-            <li>Advertisement</li>
+            <li>Consultoria Estratégica</li>
+            <li>Consultoria Fiscal</li>
+            <li>Consultoria em Gestão</li>
+            <li>Planejamento Financeiro</li>
           </ul>
         </div>
         <div>
-          <h3 className="text-sm font-bold uppercase mb-2">Company</h3>
+          <h3 className="text-sm font-bold uppercase mb-2">Empresa</h3>
           <ul className="space-y-1 text-sm">
-            <li>About us</li>
-            <li>Contact</li>
-            <li>Jobs</li>
-            <li>Press kit</li>
+            <li>Sobre nós</li>
+            <li>Contato</li>
+            <li>Trabalhe conosco</li>
+            <li>Kit de imprensa</li>
           </ul>
         </div>
         <div>
           <h3 className="text-sm font-bold uppercase mb-2">Legal</h3>
           <ul className="space-y-1 text-sm">
-            <li>Terms of use</li>
-            <li>Privacy policy</li>
-            <li>Cookie policy</li>
+            <li>Termos de uso</li>
+            <li>Política de privacidade</li>
+            <li>Política de cookies</li>
           </ul>
         </div>
       </div>
