@@ -78,15 +78,14 @@ export const login = async (req: Request, res: Response): Promise<any> => {
 }
 
 
-export async function getMyRequest(req: Request, res: Response) {
+export async function getAllRequest(req: Request, res: Response) {
   try {
     const user = (req as any).user;
 
-    const request = await Document.find({ user: user._id })
+    const request = await Document.find({ user: user.id })
     if (!request || request.length === 0) {
      res.status(404).json({ message: "Nenhum pedido Feito." });
     }
-
     res.status(200).json(request);
   } catch (err) {
     console.error("Erro ao buscar pedidos do usuário:", err);

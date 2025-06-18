@@ -9,7 +9,7 @@ const documentSchema = new Schema<DocumentProps>(
       type: String,
       enum: ['pendente', 'aprovado', 'rejeitado'],
     },
-    category: {type: String, enum: ['Auditoria', 'Fiscalidade', 'Acessoria de gestão'],},
+    category: {type: String, enum: ['auditoria', 'fiscalidade', 'acessoria de gestão'],},
     note: { type: String, default: '' },
     submittedAt: { type: Date, default: Date.now },
     reviewedBy: { type: String, default: '' }, // técnico
