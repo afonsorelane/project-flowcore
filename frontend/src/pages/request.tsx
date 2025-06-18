@@ -40,13 +40,13 @@ export const RequestPage = () => {
               Auditoria
             </Button>
             <Button
-              onClick={() => navigate("/requestform")}
+              onClick={() => navigate("/dashboard")}
               className="w-3/4 h-20 text-xl bg-green-600 hover:bg-green-700 text-white shadow-lg rounded-lg transition-all duration-200"
             >
               Fiscalização
             </Button>
             <Button
-              onClick={() => navigate("/requestform")}
+              onClick={() => navigate("/newuser")}
               className="w-3/4 h-20 text-xl bg-red-600 hover:bg-red-700 text-white shadow-lg rounded-lg transition-all duration-200"
             >
               Assessoria
