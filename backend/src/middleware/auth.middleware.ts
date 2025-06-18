@@ -13,14 +13,14 @@ export const authenticationToken = (
   const token = authHeader && authHeader.split(' ')[1]
 
   if (!token) {
-    res.status(401).json({ mensagem: 'User not authenticated' })
+    res.status(401).json({ mensagem: 'Usuario não autenticado' })
     return
   }
 
   const jwtSecret = process.env.JWT_SECRET
   jwt.verify(token, jwtSecret as string, (err, user) => {
     if (err) {
-      res.status(403).json({ mensagem: 'Invalid token' })
+      res.status(403).json({ mensagem: 'Token invalido' })
       return
     }
     ; (req as any).user = user

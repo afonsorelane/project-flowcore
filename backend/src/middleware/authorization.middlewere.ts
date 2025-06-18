@@ -7,8 +7,7 @@ export const authorizeRole = (role: string) => {
     const user = (req as any).user;
 
     if (!user || user.role !== role) {
-        console.log("Acesso negado, somente Tecnico tem acesso");
-       res.status(403).json({ mensagem: "Access Denied, Unauthorized access" });
+       res.status(403).json({ mensagem: "Acesso não autorizado" });
     }
 
     next();

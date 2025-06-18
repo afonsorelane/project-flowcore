@@ -4,6 +4,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import { loginRoute, userroute } from './routes/user.route'
 import { requestRoute } from './routes/request.route'
+import tecRoute from './routes/tecnich.route'
 
 const app = express()
 app.use(express.json())
@@ -17,6 +18,8 @@ app.use('/login', loginRoute)
 app.use('/register', userroute)
 app.use('/request', requestRoute)
 app.use('/details', requestRoute)
+app.use('/request', tecRoute)
+app.use('/request', tecRoute)
 
 
 mongoose

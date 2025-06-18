@@ -1,4 +1,4 @@
-import { User } from './../models/user.model';
+
 import { Request, Response } from 'express'
 import { Document } from '../models/document.model.ts'
 import { DocumentProps } from '../types/document.ts'
@@ -12,7 +12,7 @@ export const createDocument = async (req: Request, res: Response) => {
     const { category, fileUrl, note } = body;
 
     if (!userId) {
-      res.status(401).json({ mensagem: 'Usuário não autenticado (token ausente ou inválido)' });
+      res.status(401).json({ mensagem: 'Invalid Toen' });
     } else {
       const document = await Document.create({
         user: userId,

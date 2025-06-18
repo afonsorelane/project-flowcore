@@ -25,7 +25,7 @@ console.log('Senha gerada aleatoriamente:', aleatoria);
       res
         .status(400)
         .json({
-          message: 'There is already a user registered with this email.',
+          message: 'ja existe um usuario com esse email.',
         })
     }
 
@@ -37,12 +37,12 @@ console.log('Senha gerada aleatoriamente:', aleatoria);
       role: role || 'customer',
     })
 
-    res.status(201).json({ message: 'User created successfully', user })
+    res.status(201).json({ message: 'Usuario criado com sucesso', user })
   } catch (error) {
     console.log(error)
     res
       .status(500)
-      .json({ message: 'An internal server error has occurred', error })
+      .json({ message: 'Ocorreu um erro interno', error })
   }
 }
 
@@ -58,7 +58,7 @@ export const login = async (req: Request, res: Response): Promise<any> => {
 
   const isEqual = await bcrypt.compare(password, user.password)
   if (!user || !isEqual) {
-    return res.status(401).json({ message: 'not authorized' })
+    return res.status(401).json({ message: 'não autorizado' })
   }
 
   const jwtSecret: string = process.env.JWT_SECRET || ''
