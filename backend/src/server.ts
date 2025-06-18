@@ -2,7 +2,8 @@
 import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
-import { userroute } from './routes/user.route'
+import { loginRoute, userroute } from './routes/user.route'
+import { requestRoute } from './routes/request.route'
 
 const app = express()
 app.use(express.json())
@@ -12,9 +13,12 @@ const host = process.env.HOST || 'http://localhost'
 const port = process.env.PORT || 3003
 
 
-app.use('/login', userroute)
+app.use('/login', loginRoute)
 app.use('/register', userroute)
-app.use('/me', userroute)
+app.use('/requests', userroute)
+app.use('/request', requestRoute)
+app.use('/details', requestRoute)
+
 
 mongoose
   .connect(process.env.BD_URI as string)

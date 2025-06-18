@@ -7,9 +7,7 @@ const userSchema = new Schema<UserProps>({
   password: { type: String, required: true },
   role: {
     type: String,
-    required: true,
-    enum: ['technical', 'customer'],
-    default: 'customer',
+    enum: ['technical', 'customer']
   },
 })
 

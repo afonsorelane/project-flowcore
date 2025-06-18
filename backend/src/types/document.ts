@@ -2,10 +2,10 @@ import mongoose, { Document } from "mongoose";
 
 export interface DocumentProps extends Document {
   user: mongoose.Types.ObjectId;
-  clientId: string;
-  fileUrl: String;
+  fileUrl: string;
   status: "pendente" | "aprovado" | "rejeitado";
-  validationMessage: String;
+  note: string;
+  category:'Auditoria'|'Fiscalidade'|'Acessoria de gestão';
   submittedAt: Date;
   reviewedBy: string; // técnico
   reviewedAt: Date;

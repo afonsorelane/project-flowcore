@@ -1,13 +1,23 @@
-import { Request, Response} from 'express'
+import { NextFunction,Request, Response} from 'express'
 import bcrypt from 'bcrypt'
 import { UserProps } from '../types/user.ts'
 import { User } from '../models/user.model.ts'
+import { Document } from '../models/document.model.ts'
 import jwt from 'jsonwebtoken'
+import { gerarSenhaAleatoria } from '../utils/utils.ts'
+
 
 export const register = async (req: Request, res: Response) => {
+
   try {
     const body: UserProps = req.body
-    const { name, email, password } = body
+    const { name, email ,role} = body
+
+
+const aleatoria = gerarSenhaAleatoria();
+const password = await bcrypt.hash(aleatoria, 10);
+
+console.log('Senha gerada aleatoriamente:', aleatoria);
 
     const existingUser = await User.findOne({ email })
 
@@ -19,12 +29,12 @@ export const register = async (req: Request, res: Response) => {
         })
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10)
 
     const user = await User.create({
       email,
       name,
-      password: hashedPassword,
+      password: password,
+      role: role || 'customer',
     })
 
     res.status(201).json({ message: 'User created successfully', user })
@@ -54,14 +64,33 @@ export const login = async (req: Request, res: Response): Promise<any> => {
   const jwtSecret: string = process.env.JWT_SECRET || ''
   const token = jwt.sign(
     {
-      id: user.id,
+      id: user._id,
       name: user.name,
       email: user.email,
+      role: user.role,
     },
     jwtSecret,
     {
-      expiresIn: '24h',
+      expiresIn: '7d',
     }
   )
   res.status(200).json({ message: 'Ok', user, token })
 }
+
+
+export async function getMyRequest(req: Request, res: Response) {
+  try {
+    const user = (req as any).user;
+
+    const request = await Document.find({ user: user._id })
+    if (!request || request.length === 0) {
+     res.status(404).json({ message: "Nenhum pedido Feito." });
+    }
+
+    res.status(200).json(request);
+  } catch (err) {
+    console.error("Erro ao buscar pedidos do usuário:", err);
+    res.status(500).json({ error: "Erro ao buscar seus pedidos." });
+  }
+}
+
