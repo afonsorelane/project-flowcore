@@ -21,7 +21,8 @@ const port = process.env.PORT || 3003
 app.use('/login', loginRoute)
 app.use('/register', userroute)
 app.use('/request', requestRoute)
-app.use('/details', requestRoute)
+app.use('/request', requestRoute)
+app.use('/users',userroute)
 app.use('/request', tecRoute)
 app.use('/request', tecRoute)
 
