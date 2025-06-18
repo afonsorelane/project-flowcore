@@ -3,7 +3,7 @@ import { AboutPage, LoginPage, RequestPage, SubmitForm } from "./pages";
 
 const router = createBrowserRouter([
   {
-    path: "/about",
+    path: "/",
     element: <AboutPage />,
   },
   {
