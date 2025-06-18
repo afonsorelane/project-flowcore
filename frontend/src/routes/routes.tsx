@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <RequestPage />,
   },
   {
-    path: "/rquestform",
+    path: "/requestform",
     element: <SubmitForm />,
   },
 ]);

@@ -9,7 +9,7 @@ import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 import { LuSearch } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import { login } from "@/services/login";
-import toast, { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from "react-hot-toast";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Email inválido" }),
@@ -31,22 +31,21 @@ export const LoginPage = () => {
     try {
       const response = await login({
         data: { email: user.email, password: user.password },
-      })
+      });
       if (response.status === 200) {
-        toast.success('Login feito com sucesso!',{id:"1"})
-        window.location.href = '/'
+        toast.success("Login feito com sucesso!", { id: "1" });
       } else {
-       // console.log("não conseguiu fazer login")
-        toast.error("Email ou Password incorrectos",{id:"1"})
+        // console.log("não conseguiu fazer login")
+        toast.error("Email ou Password incorrectos", { id: "1" });
       }
     } catch (error) {
-      console.error(error)
-      toast.error('Error logging in. Please try again later.', {
-        id: '1',
-      })
+      console.error(error);
+      toast.error("Error logging in. Please try again later.", {
+        id: "1",
+      });
     }
   }
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -105,7 +104,12 @@ export const LoginPage = () => {
                     </a>
                   </div>
                   <Toaster />
-                  <Button className="w-full">Entrar</Button>
+                  <Button
+                    className="w-full"
+                    onClick={() => navigate("/request")}
+                  >
+                    Entrar
+                  </Button>
                 </form>
                 <p className="text-xs text-center mt-4">
                   By signing in, I agree to the{" "}

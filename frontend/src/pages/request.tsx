@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { useNavigate } from "react-router-dom";
 
 export const RequestPage = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
@@ -31,13 +33,22 @@ export const RequestPage = () => {
             <h1 className="text-2xl font-bold text-blue-900 mb-6">
               Escolha o serviço
             </h1>
-            <Button className="w-3/4 h-20 text-xl bg-blue-700 hover:bg-blue-800 text-white shadow-lg rounded-lg transition-all duration-200">
+            <Button
+              onClick={() => navigate("/requestform")}
+              className="w-3/4 h-20 text-xl bg-blue-700 hover:bg-blue-800 text-white shadow-lg rounded-lg transition-all duration-200"
+            >
               Auditoria
             </Button>
-            <Button className="w-3/4 h-20 text-xl bg-green-600 hover:bg-green-700 text-white shadow-lg rounded-lg transition-all duration-200">
+            <Button
+              onClick={() => navigate("/requestform")}
+              className="w-3/4 h-20 text-xl bg-green-600 hover:bg-green-700 text-white shadow-lg rounded-lg transition-all duration-200"
+            >
               Fiscalização
             </Button>
-            <Button className="w-3/4 h-20 text-xl bg-red-600 hover:bg-red-700 text-white shadow-lg rounded-lg transition-all duration-200">
+            <Button
+              onClick={() => navigate("/requestform")}
+              className="w-3/4 h-20 text-xl bg-red-600 hover:bg-red-700 text-white shadow-lg rounded-lg transition-all duration-200"
+            >
               Assessoria
             </Button>
           </div>
