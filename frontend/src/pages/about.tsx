@@ -12,14 +12,16 @@ export const AboutPage = () => {
         className="relative h-screen bg-cover bg-center"
         style={{
           backgroundImage:
-            'url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80")',
+            'url("https://pgbr.net.br/wp-content/uploads/2023/04/PGBR-POSTAR-AGORA-1.jpeg")',
+          height: 500
         }}
+
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-between items-center p-6">
-          <h1 className="text-white text-3xl font-bold">FLOWCORE</h1>
+        <div className="flex justify-between p-4">
+          <h1 className="text-gray-800 text-3xl font-bold">FLOWCORE</h1>
           <div className="space-x-4">
-            <Button variant="outline">Login</Button>
-            <Button>Register</Button>
+            <Button variant="outline">Iniciar Sessão</Button>
+            <Button>Registar</Button>
           </div>
         </div>
       </div>
@@ -29,16 +31,17 @@ export const AboutPage = () => {
         <motion.div whileHover={{ scale: 1.05 }}>
           <Card className="h-full">
             <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-2">Consultive</h2>
-              <p>Serviços de consultoria personalizados para o seu negócio.</p>
+              <h2 className="text-xl font-semibold mb-2">Auditória</h2>
+              <p>Actuamos com foco na avaliação de processos, identificação de riscos, conformidade normativa e melhoria contínua.</p>
+              <p>Oferecemos auditorias personalizadas para empresas que buscam segurança, credibilidade e eficiência em sua gestão.</p>
             </CardContent>
           </Card>
         </motion.div>
         <motion.div whileHover={{ scale: 1.05 }}>
           <Card className="h-full">
-            <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-2">Fiscalidade</h2>
-              <p>Planeamento e cumprimento das obrigações fiscais.</p>
+            <CardContent className="p-10">
+              <h2 className="text-xl font-semibold mb-2">Fiscalização</h2>
+              <p>Garanta o cumprimento de normas, prazos e padrões com os nossos serviços especializados de fiscalização. Atuamos com foco em controle, qualidade, conformidade técnica e segurança, acompanhando todas as etapas dos processos ou projetos.</p>
             </CardContent>
           </Card>
         </motion.div>
@@ -46,27 +49,28 @@ export const AboutPage = () => {
           <Card className="h-full">
             <CardContent className="p-6">
               <h2 className="text-xl font-semibold mb-2">
-                Assessoria de Gestão
+                Assessoria
               </h2>
-              <p>Apoio estratégico na gestão e tomada de decisões.</p>
+              <p>Conte com uma assessoria estratégica, personalizada e contínua para apoiar suas decisões e garantir mais eficiência e segurança.</p>
+              <p>Oferecemos suporte técnico e especializado, com foco em planejamento, organização e acompanhamento de processos.</p>
             </CardContent>
           </Card>
         </motion.div>
       </section>
 
       {/* About com imagem */}
-      <section className="flex flex-col md:flex-row items-center gap-6 px-6 py-16">
+      <section className="flex flex-col md:flex-row items-center justify-center gap-6 px-6 py-16 ">
         <img
-          src="/about.jpg"
+          src="/img/hackathon-img2.jpg"
           alt="About"
-          className="w-full md:w-1/2 rounded-xl shadow-lg"
+          className="h-00 w-100 rounded-lg "
         />
         <div className="md:w-1/2">
-          <h2 className="text-2xl font-bold mb-4">Sobre Nós</h2>
+          <h2 className="text-2xl font-bold mb-4 justify-center">Sobre Nós</h2>
           <p>
-            Somos uma empresa comprometida com a excelência em consultoria,
-            fiscalidade e assessoria de gestão, ajudando os nossos clientes a
-            alcançar os seus objetivos.
+            Somos uma empresa especializada em consultoria, fiscalização e assessoria, comprometida em oferecer soluções inteligentes, personalizadas e eficazes para nossos clientes.</p>
+
+          <p>Com uma equipe multidisciplinar, experiente e atualizada com as melhores práticas do mercado, atuamos de forma estratégica para apoiar pessoas, empresas e órgãos públicos na tomada de decisões, no cumprimento de normas e na execução eficiente de processos e projetos.
           </p>
         </div>
       </section>
