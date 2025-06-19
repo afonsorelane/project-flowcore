@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMyRequest } from "@/services/allUserRequest";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 export const Pedidos = () => {
   const [pedidos, setPedidos] = useState<any[]>([]);
@@ -18,7 +20,10 @@ export const Pedidos = () => {
   }, []);
 
   return (
-    <div className="max-w-2xl mx-auto mt-8 p-4 bg-white rounded shadow">
+    
+    <div className="flex flex-col w-screen">
+      <Header/>
+      <main className="mx-auto mt-8 p-4 bg-white rounded shadow">
       <h1 className="text-2xl font-bold mb-4">Meus Pedidos</h1>
       {loading ? (
         <p>Carregando...</p>
@@ -35,6 +40,8 @@ export const Pedidos = () => {
           ))}
         </ul>
       )}
+    </main>
+    <Footer/>
     </div>
   );
 };

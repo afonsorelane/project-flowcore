@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
 const schema = z.object({
   category: z.enum(['auditoria', 'fiscalidade', 'acessoria de gestão']),
@@ -50,6 +52,10 @@ export const SubmitDocument = () => {
   };
 
   return (
+    <>
+    <div>
+      <Header />
+      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white p-0">
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto space-y-4 p-4">
       <label className="block">
         Categoria:
@@ -76,5 +82,9 @@ export const SubmitDocument = () => {
         {loading ? 'Enviando...' : 'Submeter Documento'}
       </Button>
     </form>
+    </main>
+    <Footer/>
+    </div>
+    </>
   );
 }

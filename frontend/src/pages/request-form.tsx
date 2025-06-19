@@ -18,7 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
-// 1. Define your Zod Schema
+
 const formSchema = z.object({
   firstName: z.string().min(1, { message: "First Name is required." }),
   email: z.string().email({ message: "Invalid email address." }),
@@ -28,7 +28,7 @@ const formSchema = z.object({
       message: " file is required.",
     })
     .refine((file) => file.size <= 10 * 1024 * 1024, {
-      // 10MB limit
+     
       message: "File size must be less than 10MB.",
     })
     .refine((file) => file.type.startsWith("video/"), {
@@ -41,7 +41,7 @@ const formSchema = z.object({
 });
 
 export const SubmitForm = () => {
-  // 2. Initialize react-hook-form with Zod resolver
+  
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,15 +54,8 @@ export const SubmitForm = () => {
     },
   });
 
-  // 3. Define your onSubmit handler
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log("Form submitted with values:", values);
-    // Here you would typically send the data to your backend
-    // For file uploads, you'd usually use FormData:
-    // const formData = new FormData();
-    // formData.append('firstName', values.firstName);
-    // formData.append('video', values.file);
-    // ... then use fetch or axios to post formData
     alert("Form submitted! Check console for values.");
   }
 
@@ -77,7 +70,6 @@ export const SubmitForm = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* First Name */}
                 <FormField
                   control={form.control}
                   name="firstName"
@@ -93,7 +85,7 @@ export const SubmitForm = () => {
                 />
               </div>
 
-              {/* E-mail */}
+     
               <FormField
                 control={form.control}
                 name="email"
@@ -108,7 +100,7 @@ export const SubmitForm = () => {
                 )}
               />
 
-              {/* Upload Video */}
+        
               <FormField
                 control={form.control}
                 name="file"
@@ -118,7 +110,7 @@ export const SubmitForm = () => {
                     <FormControl>
                       <div
                         className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded-md cursor-pointer hover:border-gray-400 transition-colors"
-                        onDragOver={(e) => e.preventDefault()} // Allow drop
+                        onDragOver={(e) => e.preventDefault()}
                         onDrop={(e) => {
                           e.preventDefault();
                           if (e.dataTransfer.files && e.dataTransfer.files[0]) {
@@ -190,7 +182,7 @@ export const SubmitForm = () => {
                 </p>
               </div>
 
-              {/* Do You Agree to the Terms Above? */}
+             
               <FormField
                 control={form.control}
                 name="agreedToTerms"
@@ -216,7 +208,6 @@ export const SubmitForm = () => {
                 )}
               />
 
-              {/* Comments */}
               <FormField
                 control={form.control}
                 name="comments"
