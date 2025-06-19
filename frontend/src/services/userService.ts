@@ -1,6 +1,14 @@
-import { api } from '../api/axios'; // Make sure this path is correct and the file exists
-import type { UserType } from '../types/user';
+import axios from 'axios';
 
-export const createUser = async (data: UserType) => {
-  return await api.post('/register', data);
-};
+export async function createUser(data: { name: string; email: string; role: string }) {
+  const token = localStorage.getItem('token'); // ou de onde você armazena o token
+  return axios.post(
+    'http://localhost:3003/register',
+    data,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+}

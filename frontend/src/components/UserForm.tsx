@@ -6,9 +6,9 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 const schema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  password: z.string().min(6),
+  name: z.string().min(2, 'Nome obrigatório'),
+  email: z.string().email('Email inválido'),
+  role: z.enum(['customer', 'technical']).default('customer'),
 });
 
 export function UserForm() {
@@ -20,9 +20,13 @@ export function UserForm() {
   } = useForm({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: any) => {
-    await createUser({ ...data, role: 'customer' });
-    reset();
-    alert('Usuário criado com sucesso');
+    try {
+      await createUser(data);
+      reset();
+      alert('Usuário criado com sucesso. A senha foi enviada por email.');
+    } catch (err: any) {
+      alert(err?.response?.data?.message || 'Erro ao criar usuário');
+    }
   };
 
   return (
@@ -31,8 +35,11 @@ export function UserForm() {
       {errors.name && <span>{errors.name.message}</span>}
       <Input placeholder="Email" {...register('email')} />
       {errors.email && <span>{errors.email.message}</span>}
-      <Input type="password" placeholder="Senha" {...register('password')} />
-      {errors.password && <span>{errors.password.message}</span>}
+      <select {...register('role')} className="input input-bordered w-full">
+        <option value="customer">Cliente</option>
+        <option value="technical">Técnico</option>
+      </select>
+      {errors.role && <span>{errors.role.message}</span>}
       <Button type="submit">Criar Cliente</Button>
     </form>
   );

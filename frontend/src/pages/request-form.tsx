@@ -22,14 +22,14 @@ import { Footer } from "@/components/footer";
 const formSchema = z.object({
   firstName: z.string().min(1, { message: "First Name is required." }),
   email: z.string().email({ message: "Invalid email address." }),
-  videoFile: z
+  file: z
     .any()
     .refine((file) => file instanceof File, {
-      message: "A video file is required.",
+      message: " file is required.",
     })
     .refine((file) => file.size <= 10 * 1024 * 1024, {
       // 10MB limit
-      message: "Video size must be less than 10MB.",
+      message: "File size must be less than 10MB.",
     })
     .refine((file) => file.type.startsWith("video/"), {
       message: "Only video files are allowed.",
@@ -48,7 +48,7 @@ export const SubmitForm = () => {
       firstName: "",
 
       email: "",
-      videoFile: null, // Initialize as null
+      file: null, // Initialize as null
       agreedToTerms: false,
       comments: "",
     },
@@ -61,7 +61,7 @@ export const SubmitForm = () => {
     // For file uploads, you'd usually use FormData:
     // const formData = new FormData();
     // formData.append('firstName', values.firstName);
-    // formData.append('video', values.videoFile);
+    // formData.append('video', values.file);
     // ... then use fetch or axios to post formData
     alert("Form submitted! Check console for values.");
   }
@@ -111,7 +111,7 @@ export const SubmitForm = () => {
               {/* Upload Video */}
               <FormField
                 control={form.control}
-                name="videoFile"
+                name="file"
                 render={({ field: { value, onChange, ...fieldProps } }) => (
                   <FormItem>
                     <FormLabel>Carregar ficheiro</FormLabel>
