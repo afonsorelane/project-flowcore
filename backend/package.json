@@ -27,6 +27,9 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@types/multer": "^1.4.13",
+    "cloudinary": "^2.7.0",
+    "multer": "^2.0.1",
     "resend": "^4.6.0"
   }
 }
