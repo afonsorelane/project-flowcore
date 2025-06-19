@@ -1,4 +1,4 @@
-# 📊 Flowcore: Plataforma de Auditoria e Gestão de Documentos
+# 📊 Flowcore: Plataforma de Gestão de Documentos
 
 Sistema completo para facilitar a recolha, validação e análise de documentos entre clientes e uma equipa técnica.
 
@@ -7,8 +7,8 @@ Sistema completo para facilitar a recolha, validação e análise de documentos 
 ## 🔧 Tecnologias Utilizadas
 
 - **Backend:** Node.js, Express, TypeScript, MongoDB (Mongoose), JWT (autenticação), Cloudinary (upload de ficheiros), Resend (envio de emails)
-- **Frontend:** React, TypeScript, Vite, TailwindCSS, React Hook Form, Zod, Axios, Radix UI, Framer Motion
-- **Outros:** ESLint, dotenv, class-variance-authority, react-hot-toast
+- **Frontend:** React, TypeScript, Vite, TailwindCSS, React Hook Form, Zod, Axios,Framer Motion
+- **Outros:** dotenv, react-hot-toast
 
 ---
 
