@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { AboutPage, CreateUser, Dashboard, LoginPage, RequestPage, SubmitForm } from "../pages";
+import { AboutPage, CreateUser, Dashboard, LoginPage, RequestPage, SubmitForm, SubmitDocument } from "../pages";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
     {
     path: "/newuser",
     element: <CreateUser />,
+  },
+      {
+    path: "/submitdocument",
+    element: <SubmitDocument />,
   },
 ]);
 

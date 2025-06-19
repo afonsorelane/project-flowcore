@@ -4,7 +4,8 @@ import { ErrorPage } from "./errorPage";
 
 import { RequestPage } from "./request";
 import { SubmitForm } from "./request-form";
-import { CreateUser } from "./CreateUser";
+import { CreateUser } from "./createuser";
 import { Dashboard } from "./Dashboard";
+import { SubmitDocument } from "./SubmitDocument";
 
-export { AboutPage, LoginPage, RequestPage, SubmitForm, ErrorPage, CreateUser, Dashboard };
+export { AboutPage, LoginPage, RequestPage, SubmitForm, ErrorPage, CreateUser, Dashboard, SubmitDocument };

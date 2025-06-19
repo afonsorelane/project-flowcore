@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { useNavigate } from "react-router-dom";
 
+
 export const RequestPage = () => {
   const navigate = useNavigate();
   return (
@@ -34,7 +35,7 @@ export const RequestPage = () => {
               Escolha o serviço
             </h1>
             <Button
-              onClick={() => navigate("/requestform")}
+              onClick={() => navigate("/submitdocument")}
               className="w-3/4 h-20 text-xl bg-blue-700 hover:bg-blue-800 text-white shadow-lg rounded-lg transition-all duration-200"
             >
               Auditoria
