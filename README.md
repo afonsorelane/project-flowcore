@@ -37,13 +37,13 @@ project-flowcore/
 ├── backend/
 │   ├── src/
 │   │   ├── controllers/    # Lógica de negócio (users, documentos, email)
-│   │   ├── middleware/     # Autenticação, autorização, upload (multer)
+│   │   ├── middleware/     # Autenticação, autorização
 │   │   ├── models/         # Modelos Mongoose (User, Document)
 │   │   ├── routes/         # Rotas Express (login, register, request)
 │   │   ├── types/          # Tipagens TypeScript
 │   │   ├── utils/          # Utilitários (cloudinary, senha aleatória)
 │   │   └── server.ts       # Inicialização do servidor
-│   └── .env.template       # Variáveis de ambiente exemplo
+│   └── .env.template       # Variáveis de ambiente
 │
 ├── frontend/
 │   ├── src/
