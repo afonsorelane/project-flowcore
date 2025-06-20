@@ -109,7 +109,7 @@ project-flowcore/
 
 - Autenticação JWT protegendo rotas sensíveis.
 - Autorização por papel (`customer` ou `technical`).
-- Upload seguro de arquivos (apenas PDF/vídeo, limite de tamanho).
+- Upload seguro de arquivos (apenas PDF, limite de tamanho).
 - Senhas armazenadas com hash (bcrypt).
 - Variáveis sensíveis via `.env`.
 
